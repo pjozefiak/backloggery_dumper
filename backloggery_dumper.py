@@ -19,13 +19,18 @@ games_list = []
 for game in games:
     game_entry = {}
     try:
-        gra = game.h2.img
+        gra = game.div.img.get('src')
         title = game.h2.b.text
-        # platform = game.h2.b.text
         if '▼' in title:
             title = title.replace('▼', '').strip()
             platform = 'COLLECTION'
+            status = 'COLLECTION'
+            score = 'COLLECTION'
+        else:
+            platform = game.h2.a.get('href').split('&')[1].replace('console=', '')
+            status = game.h2.img.get('alt').replace('(', '').replace(')', '')
+            score = game.div.img.get('src')
 
-        print(gra)
+        print('{} - {} - {} - {}'.format(title, status, platform, score))
     except AttributeError:
         continue

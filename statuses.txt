@@ -1,0 +1,5 @@
+B - Beaten
+u - unplayed
+U - unfinished
+C - Completed
+M - Mastered
