@@ -20,6 +20,7 @@ for game in games:
     game_entry = {}
     try:
         gra = game.div.img.get('src')
+        image = game.div.find_all('img')
         title = game.h2.b.text
         if '▼' in title:
             title = title.replace('▼', '').strip()
@@ -31,6 +32,7 @@ for game in games:
             status = game.h2.img.get('alt').replace('(', '').replace(')', '')
             score = game.div.img.get('src')
 
-        print('{} - {} - {} - {}'.format(title, status, platform, score))
+        # print('{} - {} - {} - {}'.format(title, status, platform, score))
+        print(image)
     except AttributeError:
         continue
